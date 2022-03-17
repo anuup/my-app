@@ -1,20 +1,47 @@
 import React,{useState} from 'react'
 import './User.css'
-function user() {
-  const [data, setData] = useState([])
+import axios from 'axios'
+
+function User() {
+  
+  
+ 
+ const[data,setData]=useState([])
 
   const fetchUsers=async()=>{
     
-const response=await axios.get(" ")
+const response=await axios.get("https://jsonplaceholder.typicode.com/users ")
 setData(response.data)
 
   }
   return (
     <div className='user'>
-I AM A USER
+<h1>hello users</h1>
 <div>
 
-  <button onClick={fetchUsers}>get users</button>
+  <button onClick={fetchUsers}className="btn">get users</button>
+
+  {data.map(
+
+user=>(
+<>
+
+  
+
+<ul>{user.name}</ul>
+
+
+</>
+
+
+
+)
+
+
+
+  )
+  
+  }
 </div>
 
 
@@ -22,5 +49,5 @@ I AM A USER
   )
 }
 
-export default user
+export default User
     
